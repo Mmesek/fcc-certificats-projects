@@ -48,13 +48,12 @@ def bruteforce(target: str, port: int, username: str, passwords: list[str]) -> N
 if __name__ == "__main__":
     scapy.conf.verb = 0  # Task 8 & 17
     target = input("What's the Target? ")  # Task 4
-    open_ports = []  # Task 6
 
     if not is_available(target):  # Task 20
         print(f"Target {target} doesn't seem to be available :(")
         exit()  # Task the host doesn't respond to ICMP requests
 
-    open_ports = [port for port in range(1, 1024) if scan_port(port, target)]  # Task 5 & 21
+    open_ports = [port for port in range(1, 1024) if scan_port(port, target)]  # Task 5, 6 & 21
 
     print("Scan finished.", f"Open Ports ({len(open_ports)})" if open_ports else "No open ports found")  # Task 24
 
